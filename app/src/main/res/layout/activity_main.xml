@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <lin.abcdq.darknessviewui.sticky.StickyScrollView
+            android:id="@+id/nsv_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/ll_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/purple_200"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/purple_200"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/purple_200"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/purple_200"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/purple_200"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/purple_200"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/purple_200"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_sticky"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/purple_200"
+                    android:gravity="center"
+                    android:text="我给大家表一个吸顶"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/purple_200"
+                    android:gravity="center"
+                    android:text="地眼查"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/purple_200"
+                    android:gravity="center"
+                    android:text="地眼查"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/purple_200"
+                    android:gravity="center"
+                    android:text="地眼查"
+                    android:textColor="#ffffff" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tb_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </lin.abcdq.darknessviewui.sticky.StickyScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>
