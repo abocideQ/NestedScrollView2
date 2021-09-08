@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.qmuiteam.qmui.util.QMUIDisplayHelper
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val screenHeight = resources.displayMetrics.heightPixels
+        val screenHeight = resources.displayMetrics.heightPixels -
+                QMUIDisplayHelper.dpToPx(60) +
+                QMUIDisplayHelper.getStatusBarHeight(this)
         val params = mViewpager.layoutParams
         params.height = screenHeight
         mViewpager.layoutParams = params
