@@ -36,9 +36,9 @@ class NestedScrollView2 : NestedScrollView {
     private var mCanFlingParent = false //是否联动抛出NestedScrollView
     private var mOldDy = 0f
 
-    private var mNestedChildView: View? = null
-    private var mPager2: ViewPager2? = null
-    private var mPager: ViewPager? = null
+    private var mNestedChildView: View? = null//childView
+    private var mPager2: ViewPager2? = null//viewpager2
+    private var mPager: ViewPager? = null//viewpager
 
     override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
         super.onScrollChanged(l, t, oldl, oldt)
