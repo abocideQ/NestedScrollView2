@@ -11,12 +11,6 @@ import com.qmuiteam.qmui.util.QMUIDisplayHelper
 
 class MainActivity : AppCompatActivity() {
 
-    private val mFragments = arrayOf(
-        R.layout.item_layout1,
-        R.layout.item_layout2,
-        R.layout.item_layout3
-    )
-
     private val mViewpager: ViewPager2 by lazy { findViewById(R.id.vp_content) }
     private val mTabLayout: TabLayout by lazy { findViewById(R.id.tb_content) }
 
@@ -35,7 +29,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun createFragment(position: Int): Fragment {
-                return MainFragment(mFragments[position])
+                return when (position) {
+                    0 -> MainFragment()
+                    1 -> MainFragment2()
+                    else -> MainFragment3()
+                }
             }
         }
         val mediator = TabLayoutMediator(mTabLayout, mViewpager) { tab, position ->
