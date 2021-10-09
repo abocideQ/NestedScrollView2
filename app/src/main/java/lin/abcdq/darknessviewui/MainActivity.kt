@@ -17,11 +17,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val screenHeight = resources.displayMetrics.heightPixels -
-                QMUIDisplayHelper.dpToPx(60) +
-                QMUIDisplayHelper.getStatusBarHeight(this)
+        val pagerHeight = QMUIDisplayHelper.getScreenHeight(this) - QMUIDisplayHelper.dpToPx(60)
         val params = mViewpager.layoutParams
-        params.height = screenHeight
+        params.height = pagerHeight
         mViewpager.layoutParams = params
         mViewpager.adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount(): Int {

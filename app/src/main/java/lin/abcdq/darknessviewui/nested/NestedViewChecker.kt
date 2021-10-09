@@ -6,9 +6,7 @@ import android.os.Message
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.children
-import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import java.util.concurrent.ExecutorService
@@ -16,8 +14,8 @@ import java.util.concurrent.Executors
 
 class NestedViewChecker {
 
-    fun nestedView(): View? {
-        return mNestedView
+    fun nestedView(): NestedChild? {
+        return mNestedRecyclerView
     }
 
     fun pagerView(): ViewPager? {
@@ -33,7 +31,7 @@ class NestedViewChecker {
         mHandler?.looper?.quitSafely()
     }
 
-    private var mNestedView: View? = null
+    private var mNestedRecyclerView: NestedChild? = null
     private var mPagerView: ViewPager? = null
     private var mPager2View: ViewPager2? = null
 
@@ -147,14 +145,13 @@ class NestedViewChecker {
 
     private fun viewCheck(view: View): Boolean {
         return when (view) {
-            is RecyclerView -> true
-            is NestedScrollView -> true
+            is NestedChild -> true
             else -> false
         }
     }
 
     private fun viewDone(view: View) {
-        mNestedView = view
+        mNestedRecyclerView = view as NestedChild
         mInterrupt = true
         mHandler?.removeCallbacksAndMessages(null)
         mRunnable?.run()
@@ -170,7 +167,7 @@ class NestedViewChecker {
     private fun forceReset() {
         mInterrupt = false
         mHandler?.removeCallbacksAndMessages(null)
-        mNestedView = null
+        mNestedRecyclerView = null
         mPagerView = null
         mPager2View = null
     }
