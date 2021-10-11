@@ -158,8 +158,4 @@ class HimalayaActivity : AppCompatActivity() {
         }
         mediator.attach()
     }
-
-    private fun initView() {
-
-    }
 }
