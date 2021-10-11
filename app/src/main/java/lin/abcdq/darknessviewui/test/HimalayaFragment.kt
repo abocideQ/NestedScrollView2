@@ -1,11 +1,13 @@
 package lin.abcdq.darknessviewui.test
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,6 +44,7 @@ class HimalayaFragment : Fragment() {
             override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
                 val textView = holder.itemView.findViewById<TextView>(R.id.tv_content)
                 textView.text = "RecyclerView ${mList[holder.adapterPosition]}"
+                textView.background = ContextCompat.getDrawable(context!!, R.color.purple_200)
             }
 
             override fun getItemCount(): Int {
