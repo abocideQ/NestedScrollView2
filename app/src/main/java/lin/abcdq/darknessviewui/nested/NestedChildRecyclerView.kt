@@ -18,6 +18,7 @@ class NestedChildRecyclerView : RecyclerView, NestedChild {
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
         if (ev.action == MotionEvent.ACTION_DOWN) {
+            mTouching = true
             mOldDy = 0f
             mOldDx = 0f
             mOldDy = ev.rawY
@@ -28,7 +29,7 @@ class NestedChildRecyclerView : RecyclerView, NestedChild {
             val absDy = abs(diffDy)
             val absDx = abs(diffDx)
             if (absDx > absDy) {
-//                mParent?.enablePager(true)
+                mParent?.enablePager(true)
             } else {
                 mParent?.enablePager(false)
             }
@@ -39,7 +40,8 @@ class NestedChildRecyclerView : RecyclerView, NestedChild {
                 mParent?.scrollBy(0, (diffDy).toInt())
                 return false
             }
-        } else if (ev.action == MotionEvent.ACTION_UP) {
+        } else if (ev.action == MotionEvent.ACTION_UP || ev.action == MotionEvent.ACTION_CANCEL) {
+            mTouching = false
             mParent?.enablePager(true)
             if (mFlingParent) {
                 mParent?.fling()
@@ -52,6 +54,12 @@ class NestedChildRecyclerView : RecyclerView, NestedChild {
 
     override fun setParent(parent: NestedParent) {
         mParent = parent
+    }
+
+    private var mTouching = false
+
+    override fun touching(): Boolean {
+        return mTouching
     }
 
     override fun fling(velocity: Float) {
